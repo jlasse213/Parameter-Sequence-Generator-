@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parameter Sequence Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .section { margin-bottom: 24px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
+        input, select, textarea, button { width: 100%; padding: 8px; margin-bottom: 8px; }
+        textarea { height: 100px; }
+        #output { margin-top: 32px; background: #f9f9f9; padding: 16px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h1>Parameter Sequence Generator</h1>
+    <div class="section">
+        <label for="model">Model</label>
+        <select id="model">
+            <option value="y=b">y = b</option>
+            <option value="y=a*x">y = a * x</option>
+        </select>
+    </div>
+    <div class="section">
+        <label for="learningRate">Learning Rate</label>
+        <input type="number" id="learningRate" step="any" min="0" placeholder="e.g. 0.01">
+    </div>
+    <div class="section">
+        <label for="epochs">Epochs</label>
+        <input type="number" id="epochs" min="1" placeholder="e.g. 100">
+    </div>
+    <div class="section">
+        <label for="csvData">Paste CSV Data</label>
+        <textarea id="csvData" placeholder="x,y\n1,2\n2,4\n..."></textarea>
+    </div>
+    <button id="runBtn">Run</button>
+    <div id="output"></div>
+    <div class="section">
+        <label for="paramSequence">Parameter Sequence (copyable)</label>
+        <textarea id="paramSequence" readonly style="height:80px;"></textarea>
+        <button id="copyBtn">Copy to Clipboard</button>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
